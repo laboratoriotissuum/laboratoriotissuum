@@ -5,7 +5,12 @@
     <title>Laboratorios TISSUUM – Anatomía Patológica | Castellón</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Laboratorio de anatomía patológica en Castellón. Microtomo obsidiana para cortes ultrafinos 0.5-2µm. ISO 15189 acreditado.">
+    <meta name="keywords" content="anatomía patológica, microtomo, histología, citología, Castellón">
+    <meta property="og:title" content="Laboratorios TISSUUM – Anatomía Patológica Avanzada">
+    <meta property="og:description" content="Centro acreditado ISO 15189 especializado en anatomía patológica e innovación histológica en Castellón.">
+    <meta property="og:image" content="https://i.imgur.com/RgSLwrb.png">
     <link rel="icon" href="https://i.imgur.com/RgSLwrb.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --rosa-neon-claro: #eabadf;
@@ -215,25 +220,39 @@
             background: var(--blanco); color: var(--rosa-principal);
             transform: translateY(-8px); box-shadow: 0 25px 70px var(--sombra-rosa);
         }
-        .social-links {
-            display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;
+        
+        /* REDES SOCIALES VERTICALES */
+        .social-links-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            max-width: 200px;
         }
         .social-link {
             color: var(--rosa-neon-claro);
             text-decoration: none;
             font-weight: 700;
-            padding: 0.8rem 1.6rem;
-            border-radius: 25px;
-            border: 2px solid rgba(255,255,255,0.4);
-            transition: all 0.3s;
-            background: rgba(255,255,255,0.05);
+            padding: 1.2rem 2rem;
+            border-radius: 30px;
+            border: 3px solid rgba(255,255,255,0.4);
+            transition: all 0.4s ease;
+            background: rgba(255,255,255,0.08);
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--sombra-rosa);
         }
         .social-link:hover {
             background: var(--blanco);
             color: var(--rosa-principal);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px var(--sombra-rosa);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px var(--sombra-rosa);
         }
+        .social-link.instagram { border-left: 6px solid #E4405F; }
+        .social-link.tiktok { border-left: 6px solid #000000; }
+        .social-link.linkedin { border-left: 6px solid #0077B5; }
 
         @media (max-width: 768px) {
             .logo { width: 240px; height: 75px; }
@@ -243,6 +262,8 @@
             .header-container { flex-direction: column; gap: 2rem; padding: 1.2rem; }
             h1 { font-size: 3rem; } h2 { font-size: 2.5rem; }
             .grid-3 { grid-template-columns: 1fr; }
+            .social-links-vertical { flex-direction: row; flex-wrap: wrap; max-width: none; }
+            .social-link { width: auto; margin: 0.5rem; }
         }
     </style>
 </head>
@@ -254,12 +275,12 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" onclick="mostrarSeccion('inicio')" class="active">🏠 Inicio</a></li>
-                    <li><a href="#" onclick="mostrarSeccion('innovacion')">✨ Innovación</a></li>
-                    <li><a href="#" onclick="mostrarSeccion('servicios')">🧬 Servicios</a></li>
-                    <li><a href="#" onclick="mostrarSeccion('modelo')">📊 Modelo Negocio</a></li>
-                    <li><a href="#" onclick="mostrarSeccion('proceso')">⚙️ Proceso</a></li>
-                    <li><a href="#" onclick="mostrarSeccion('contacto')">📞 Contacto</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('inicio', event)" class="active">🏠 Inicio</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('innovacion', event)">✨ Innovación</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('servicios', event)">🧬 Servicios</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('modelo', event)">📊 Modelo Negocio</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('proceso', event)">⚙️ Proceso</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('contacto', event)">📞 Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -430,34 +451,31 @@
                         <span class="contact-icon">⏰</span>
                         <p><strong>Horario:</strong><br>Lun-Vie 9:00-18:00</p>
                     </div>
-                    <p style="margin-top:2rem; font-size:1.1rem;">
-                        Síguenos en redes: 
-                        <strong>@laboratoriotissuum</strong> en Instagram, TikTok y LinkedIn.
-                    </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER CON REDES SOCIALES -->
+    <!-- FOOTER CON REDES SOCIALES VERTICALES -->
     <footer>
         <div class="footer-links">
-            <a href="#" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
-            <a href="#" onclick="mostrarSeccion('innovacion')">✨ Innovación</a>
-            <a href="#" onclick="mostrarSeccion('servicios')">🧬 Servicios</a>
-            <a href="#" onclick="mostrarSeccion('modelo')">📊 Negocio</a>
-            <a href="#" onclick="mostrarSeccion('proceso')">⚙️ Proceso</a>
-            <a href="#" onclick="mostrarSeccion('contacto')">📞 Contacto</a>
+            <a href="#" onclick="mostrarSeccion('inicio', event)">🏠 Inicio</a>
+            <a href="#" onclick="mostrarSeccion('innovacion', event)">✨ Innovación</a>
+            <a href="#" onclick="mostrarSeccion('servicios', event)">🧬 Servicios</a>
+            <a href="#" onclick="mostrarSeccion('modelo', event)">📊 Negocio</a>
+            <a href="#" onclick="mostrarSeccion('proceso', event)">⚙️ Proceso</a>
+            <a href="#" onclick="mostrarSeccion('contacto', event)">📞 Contacto</a>
         </div>
 
-        <div class="social-links">
-            <a href="https://www.instagram.com/laboratoriotissuum" target="_blank" rel="noopener" class="social-link">
+        <!-- REDES SOCIALES VERTICALES -->
+        <div class="social-links-vertical">
+            <a href="https://www.instagram.com/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram TISSUUM">
                 📸 Instagram
             </a>
-            <a href="https://www.tiktok.com/@laboratoriotissuum" target="_blank" rel="noopener" class="social-link">
+            <a href="https://www.tiktok.com/@laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="TikTok TISSUUM">
                 🎵 TikTok
             </a>
-            <a href="https://www.linkedin.com/company/laboratoriotissuum" target="_blank" rel="noopener" class="social-link">
+            <a href="https://www.linkedin.com/company/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="LinkedIn TISSUUM">
                 💼 LinkedIn
             </a>
         </div>
@@ -466,12 +484,13 @@
     </footer>
 
     <script>
-        function mostrarSeccion(id) {
+        function mostrarSeccion(id, event) {
+            if (event) event.preventDefault();
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             document.querySelectorAll('nav a, .footer-links a').forEach(a => a.classList.remove('active'));
-            event.target.classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            if (event && event.target) event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
