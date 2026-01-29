@@ -192,6 +192,38 @@
             background-clip: text; margin-top: 0.5rem; min-width: 4rem;
         }
 
+        /* REDES SOCIALES VERTICALES PARA CONTACTO */
+        .social-links-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 2rem;
+        }
+        .social-link {
+            color: var(--rosa-neon-claro);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 1.2rem 2rem;
+            border-radius: 30px;
+            border: 3px solid rgba(255,255,255,0.4);
+            transition: all 0.4s ease;
+            background: rgba(255,255,255,0.08);
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--sombra-rosa);
+        }
+        .social-link:hover {
+            background: var(--blanco);
+            color: var(--rosa-principal);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px var(--sombra-rosa);
+        }
+        .social-link.instagram { border-left: 6px solid #E4405F; }
+        .social-link.tiktok { border-left: 6px solid #000000; }
+        .social-link.linkedin { border-left: 6px solid #0077B5; }
+
         .alert {
             padding: 2.2rem 3rem; border-radius: 30px; margin-bottom: 3rem;
             font-weight: 800; display: none; text-align: center; font-size: 1.3rem;
@@ -220,39 +252,31 @@
             background: var(--blanco); color: var(--rosa-principal);
             transform: translateY(-8px); box-shadow: 0 25px 70px var(--sombra-rosa);
         }
-        
-        /* REDES SOCIALES VERTICALES */
-        .social-links-vertical {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            justify-content: center;
-            align-items: center;
-            margin: 2rem auto;
-            max-width: 200px;
+
+        /* REDES SOCIALES HORIZONTALES PARA FOOTER */
+        .social-links {
+            display: flex; 
+            gap: 1.5rem; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-bottom: 2rem;
         }
-        .social-link {
+        .social-link-horizontal {
             color: var(--rosa-neon-claro);
             text-decoration: none;
             font-weight: 700;
-            padding: 1.2rem 2rem;
-            border-radius: 30px;
-            border: 3px solid rgba(255,255,255,0.4);
-            transition: all 0.4s ease;
-            background: rgba(255,255,255,0.08);
-            width: 180px;
-            text-align: center;
-            box-shadow: 0 10px 30px var(--sombra-rosa);
+            padding: 0.8rem 1.6rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.05);
         }
-        .social-link:hover {
+        .social-link-horizontal:hover {
             background: var(--blanco);
             color: var(--rosa-principal);
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 25px 60px var(--sombra-rosa);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--sombra-rosa);
         }
-        .social-link.instagram { border-left: 6px solid #E4405F; }
-        .social-link.tiktok { border-left: 6px solid #000000; }
-        .social-link.linkedin { border-left: 6px solid #0077B5; }
 
         @media (max-width: 768px) {
             .logo { width: 240px; height: 75px; }
@@ -262,8 +286,7 @@
             .header-container { flex-direction: column; gap: 2rem; padding: 1.2rem; }
             h1 { font-size: 3rem; } h2 { font-size: 2.5rem; }
             .grid-3 { grid-template-columns: 1fr; }
-            .social-links-vertical { flex-direction: row; flex-wrap: wrap; max-width: none; }
-            .social-link { width: auto; margin: 0.5rem; }
+            .social-links-vertical { flex-direction: column; }
         }
     </style>
 </head>
@@ -451,12 +474,26 @@
                         <span class="contact-icon">⏰</span>
                         <p><strong>Horario:</strong><br>Lun-Vie 9:00-18:00</p>
                     </div>
+                    
+                    <!-- REDES SOCIALES VERTICALES EN CONTACTO -->
+                    <div class="social-links-vertical">
+                        <h4 style="color: var(--blanco); margin-bottom: 1.5rem; font-size: 1.3rem;">Síguenos:</h4>
+                        <a href="https://www.instagram.com/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram TISSUUM">
+                            📸 Instagram
+                        </a>
+                        <a href="https://www.tiktok.com/@laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="TikTok TISSUUM">
+                            🎵 TikTok
+                        </a>
+                        <a href="https://www.linkedin.com/company/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="LinkedIn TISSUUM">
+                            💼 LinkedIn
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER CON REDES SOCIALES VERTICALES -->
+    <!-- FOOTER CON NAVEGACIÓN HORIZONTAL + REDES HORIZONTALES -->
     <footer>
         <div class="footer-links">
             <a href="#" onclick="mostrarSeccion('inicio', event)">🏠 Inicio</a>
@@ -467,15 +504,15 @@
             <a href="#" onclick="mostrarSeccion('contacto', event)">📞 Contacto</a>
         </div>
 
-        <!-- REDES SOCIALES VERTICALES -->
-        <div class="social-links-vertical">
-            <a href="https://www.instagram.com/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram TISSUUM">
+        <!-- REDES SOCIALES HORIZONTALES EN FOOTER -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link-horizontal instagram" aria-label="Instagram TISSUUM">
                 📸 Instagram
             </a>
-            <a href="https://www.tiktok.com/@laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="TikTok TISSUUM">
+            <a href="https://www.tiktok.com/@laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link-horizontal tiktok" aria-label="TikTok TISSUUM">
                 🎵 TikTok
             </a>
-            <a href="https://www.linkedin.com/company/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="LinkedIn TISSUUM">
+            <a href="https://www.linkedin.com/company/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link-horizontal linkedin" aria-label="LinkedIn TISSUUM">
                 💼 LinkedIn
             </a>
         </div>
