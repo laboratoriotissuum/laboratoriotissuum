@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorios TISSUUM – Anatomía Patológica | Castellón</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laboratorio de anatomía patológica en Castellón. Microtomo obsidiana para cortes ultrafinos 0.5-2µm. ISO 15189 acreditado.">
+    <style>
+        :root {
+            --rosa-neon-claro: #eabadf;
+            --magenta-claro: #eee0e8;
+            --rosa-principal: #c93f7d;
+            --rosa-medio: #cd7b98;
+            --rosa-neon: #d481c8;
+            --rosa-oscuro: #a13566;
+            --blanco: #ffffff;
+            --texto: #5a2d47;
+            --sombra-rosa: rgba(212, 129, 200, 0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6; color: var(--texto); 
+            background: linear-gradient(135deg, var(--rosa-neon-claro) 0%, var(--magenta-claro) 100%);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(20px); 
+            box-shadow: 0 10px 40px var(--sombra-rosa);
+            border-bottom: 5px solid var(--rosa-neon);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .header-container {
+            max-width: 1200px; margin: 0 auto; padding: 1.2rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            width: 280px; height: 90px; display: flex; align-items: center;
+        }
+        .logo img {
+            width: 100%; height: 100%; object-fit: contain;
+            border-radius: 18px; border: 4px solid var(--rosa-neon);
+            box-shadow: 0 15px 45px var(--sombra-rosa);
+            transition: all 0.4s ease;
+        }
+        .logo img:hover {
+            transform: scale(1.08); box-shadow: 0 25px 60px var(--sombra-rosa);
+        }
+        nav ul {
+            display: flex; list-style: none; gap: 1.5rem;
+        }
+        nav a {
+            text-decoration: none; color: var(--rosa-oscuro); font-weight: 700;
+            padding: 1.2rem 2rem; border-radius: 30px; transition: all 0.4s;
+            border: 3px solid transparent; cursor: pointer; font-size: 1rem;
+            background: rgba(212, 129, 200, 0.1);
+        }
+        nav a:hover, nav a.active {
+            background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
+            color: var(--blanco); transform: translateY(-4px); 
+            box-shadow: 0 15px 45px var(--sombra-rosa);
+            border-color: var(--rosa-neon);
+        }
+
+        main { 
+            max-width: 1300px; margin: 2.5rem auto; padding: 0 2rem; min-height: 80vh;
+        }
+        section { 
+            display: none; 
+            background: linear-gradient(145deg, var(--blanco), var(--rosa-neon-claro));
+            border-radius: 35px; padding: 4.5rem 4rem; 
+            box-shadow: 0 30px 90px var(--sombra-rosa);
+            border: 4px solid rgba(212, 129, 200, 0.3); 
+            position: relative; overflow: hidden; margin-bottom: 2.5rem;
+        }
+        section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 10px; background: linear-gradient(90deg, var(--rosa-neon), var(--rosa-principal));
+            box-shadow: 0 5px 20px var(--sombra-rosa);
+        }
+        section.active { 
+            display: block; 
+            animation: neonSlide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        @keyframes neonSlide {
+            from { opacity: 0; transform: translateY(50px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        h1 { 
+            font-size: 4rem; font-weight: 900; text-align: center;
+            background: linear-gradient(45deg, var(--rosa-principal), var(--rosa-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 2.5rem; text-shadow: 0 5px 20px var(--sombra-rosa);
+        }
+        h2 { 
+            font-size: 3.2rem; 
+            background: linear-gradient(45deg, var(--rosa-principal), var(--rosa-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 3rem; text-align: center; 
+            font-weight: 900; text-shadow: 0 5px 20px var(--sombra-rosa);
+        }
+        h3 { 
+            font-size: 1.8rem; 
+            background: linear-gradient(45deg, var(--rosa-medio), var(--rosa-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 1.5rem; font-weight: 800;
+        }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
+        .card {
+            padding: 3.5rem; border-radius: 30px; 
+            background: linear-gradient(145deg, var(--magenta-claro), var(--rosa-neon-claro));
+            border: 3px solid rgba(212, 129, 200, 0.4); 
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative; overflow: hidden; 
+            box-shadow: 0 20px 60px var(--sombra-rosa);
+        }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 8px; background: linear-gradient(90deg, var(--rosa-neon), var(--rosa-principal));
+        }
+        .card:hover { 
+            transform: translateY(-20px) scale(1.02); 
+            box-shadow: 0 45px 120px var(--sombra-rosa);
+            border-color: var(--rosa-neon);
+        }
+        .etiqueta {
+            background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
+            color: var(--blanco); padding: 0.8rem 1.8rem; border-radius: 30px;
+            font-weight: 800; display: inline-block; margin-bottom: 1.5rem;
+            text-transform: uppercase; font-size: 1rem; letter-spacing: 0.15em;
+            box-shadow: 0 10px 30px var(--sombra-rosa);
+        }
+
+        .contact-container { display: grid; grid-template-columns: 2fr 1fr; gap: 4.5rem; }
+        .contact-form { display: grid; gap: 2.2rem; }
+        input, textarea, select {
+            padding: 1.8rem 2.2rem; border: 4px solid rgba(212, 129, 200, 0.3);
+            border-radius: 30px; font-size: 1.2rem; background: rgba(255,255,255,0.95);
+            transition: all 0.5s; box-shadow: 0 15px 45px var(--sombra-rosa);
+            font-family: inherit;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none; border-color: var(--rosa-neon); 
+            box-shadow: 0 0 0 6px rgba(212, 129, 200, 0.3), 0 25px 70px var(--sombra-rosa);
+            transform: translateY(-5px);
+        }
+        .submit-btn {
+            background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
+            color: var(--blanco); border: none; padding: 2rem 4rem; border-radius: 35px;
+            font-size: 1.4rem; font-weight: 900; cursor: pointer; transition: all 0.5s;
+            text-transform: uppercase; letter-spacing: 0.2em; box-shadow: 0 25px 70px var(--sombra-rosa);
+        }
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-10px) scale(1.05); 
+            box-shadow: 0 45px 120px var(--sombra-rosa);
+        }
+
+        .contact-info h3 { 
+            background: linear-gradient(45deg, var(--rosa-principal), var(--rosa-neon));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 3rem; font-size: 2rem; font-weight: 800;
+        }
+        .contact-item {
+            display: flex; align-items: flex-start; margin-bottom: 3rem; gap: 2rem;
+            padding: 2.5rem; background: linear-gradient(145deg, var(--rosa-neon-claro), var(--magenta-claro));
+            border-radius: 30px; border-left: 8px solid var(--rosa-neon); 
+            box-shadow: 0 20px 60px var(--sombra-rosa);
+        }
+        .contact-icon { 
+            font-size: 3rem; 
+            background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-top: 0.5rem; min-width: 4rem;
+        }
+
+        .alert {
+            padding: 2.2rem 3rem; border-radius: 30px; margin-bottom: 3rem;
+            font-weight: 800; display: none; text-align: center; font-size: 1.3rem;
+            box-shadow: 0 25px 80px var(--sombra-rosa);
+        }
+        .alert-success { 
+            background: linear-gradient(135deg, #e8f8f5, #c8f7dc); 
+            color: #0a6c51; border: 4px solid #94f4c5; 
+        }
+
+        .resumen-empresa {
+            background: linear-gradient(145deg, var(--blanco), var(--rosa-neon-claro));
+            border: 3px solid rgba(212,129,200,0.3);
+            box-shadow: 0 20px 60px var(--sombra-rosa);
+            border-radius: 30px;
+            padding: 2.5rem 3rem;
+            margin: 0 auto 3.5rem;
+            max-width: 950px;
+            text-align: center;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--rosa-principal), var(--rosa-oscuro));
+            color: var(--blanco); text-align: center; padding: 5rem 2rem 3.5rem;
+            margin-top: 5rem; box-shadow: 0 -25px 80px var(--sombra-rosa);
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--rosa-neon-claro); text-decoration: none; font-weight: 800;
+            padding: 1.2rem 2.5rem; border-radius: 35px; transition: all 0.5s;
+            border: 3px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);
+        }
+        .footer-links a:hover { 
+            background: var(--blanco); color: var(--rosa-principal);
+            transform: translateY(-8px); box-shadow: 0 25px 70px var(--sombra-rosa);
+        }
+
+        @media (max-width: 768px) {
+            .logo { width: 240px; height: 75px; }
+            section { padding: 3.5rem 2.5rem; margin-bottom: 2rem; }
+            .contact-container { grid-template-columns: 1fr; gap: 3.5rem; }
+            nav ul { flex-direction: column; gap: 1.2rem; text-align: center; }
+            .header-container { flex-direction: column; gap: 2rem; padding: 1.2rem; }
+            h1 { font-size: 3rem; } h2 { font-size: 2.5rem; }
+            .grid-3 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://i.imgur.com/RgSLwrb.png" alt="Laboratorios TISSUUM - Logo" loading="lazy">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="mostrarSeccion('inicio')" class="active">🏠 Inicio</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('innovacion')">✨ Innovación</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('servicios')">🧬 Servicios</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('modelo')">📊 Modelo Negocio</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('proceso')">⚙️ Proceso</a></li>
+                    <li><a href="#" onclick="mostrarSeccion('contacto')">📞 Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- INICIO -->
+        <section id="inicio" class="active">
+            <h1>Laboratorios TISSUUM</h1>
+            
+            <!-- RESUMEN DE LA EMPRESA -->
+            <div class="resumen-empresa">
+                <p style="font-size:1.4rem; color:var(--texto); line-height:1.8;">
+                    <strong>Laboratorios TISSUUM</strong> es un centro especializado en 
+                    <strong>anatomía patológica y técnicas histológicas avanzadas</strong>, 
+                    ubicado en <strong>Castellón</strong>. 
+                    Combinamos innovación tecnológica con precisión diagnóstica, 
+                    utilizando <em>microtomos de obsidiana</em> para lograr cortes ultrafinos de tejidos
+                    con una calidad sin precedentes. 
+                    Nuestro compromiso con la excelencia y la acreditación <strong>ISO 15189</strong> 
+                    garantiza resultados de alta fiabilidad para hospitales, laboratorios de I+D y centros universitarios.
+                </p>
+            </div>
+
+            <p style="font-size: 1.5rem; text-align: center; max-width: 950px; margin: 0 auto 4rem; color: var(--rosa-oscuro); font-weight: 400;">
+                Laboratorio especializado en técnicas histológicas avanzadas y citodiagnóstico de alta precisión con <strong>microtomo de obsidiana</strong> 💖
+            </p>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="etiqueta">Innovación</span>
+                    <h3>Cuchilla Obsidiana</h3>
+                    <p><strong>500x más afilada</strong> que acero quirúrgico. Cortes de <strong>0.5-2µm</strong> sin artefactos.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Objetivo</span>
+                    <h3>Reducción 35%</h3>
+                    <p>Reducción del <strong>35% en artefactos</strong> del microtomo convencional. Diagnósticos más precisos.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Mercado</span>
+                    <h3>Oncología + I+D</h3>
+                    <p>Hospitales, clínicas, universidades y farmacéuticas. <strong>Servicio único</strong> en España.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INNOVACIÓN -->
+        <section id="innovacion">
+            <h2>✨ Innovación Tecnológica</h2>
+            <p style="font-size: 1.3rem; max-width: 900px; margin: 0 auto 2rem; line-height: 1.8;">
+                Cada vez hay más incremento de patologías complejas con poca diferenciación entre ellas —como cánceres o enfermedades degenerativas— que demandan preparaciones histológicas de mayor calidad.
+            </p>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="etiqueta">Problema</span>
+                    <h3>Limitaciones Tradicionales</h3>
+                    <p>Los microtomos tradicionales presentan limitaciones en regularidad del filo y durabilidad, generando artefactos como estrías, arrugas, roturas tisulares, compresión o estiramiento del tejido.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Solución</span>
+                    <h3>Cuchilla Obsidiana</h3>
+                    <p>Debido a la fractura concoidea del material, ofrece un filo extremadamente recto y fino, permitiendo cortes homogéneos con menos deformación tisular.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Ventaja</span>
+                    <h3>Innovación Diferencial</h3>
+                    <p>El uso de esta tecnología representa una innovación única respecto a otros laboratorios convencionales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="servicios">
+            <h2>🧬 Servicios Especializados</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="etiqueta">Histología</span>
+                    <h3>Procesamiento Avanzado</h3>
+                    <p>Cortes ultrafinos 0.5-2µm para microscopía óptica avanzada y correlativa con mínima deformación tisular.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Citología</span>
+                    <h3>Análisis Celular</h3>
+                    <p>Preparaciones citológicas de alta precisión para diagnóstico oncológico y estudios celulares.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">I+D</span>
+                    <h3>Investigación Biomédica</h3>
+                    <p>Colaboración con universidades, hospitales y farmacéuticas en proyectos de ultraestructura y patología experimental.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODELO DE NEGOCIO -->
+        <section id="modelo">
+            <h2>📊 Modelo de Negocio</h2>
+            <div class="resumen-empresa" style="margin-bottom: 3rem;">
+                <h3>Objetivos del Proyecto</h3>
+                <p style="font-size:1.2rem; line-height:1.8;">
+                    Construcción de un laboratorio con <strong>microtomo de obsidiana</strong> capaz de realizar cortes ultrafinos entre <strong>2 y 0,5 µm</strong>, aptos para microscopía óptica avanzada y correlativa. 
+                    Establecer un estándar de calidad basado en la <strong>reducción de artefactos</strong>, aumentos de nitidez, alianzas con universidades y centros hospitalarios, y generar un servicio especializado único.
+                </p>
+            </div>
+        </section>
+
+        <!-- PROCESO -->
+        <section id="proceso">
+            <h2>⚙️ Metodología y Alcance</h2>
+            <div class="resumen-empresa" style="margin-bottom: 3rem;">
+                <h3>Metodología Utilizada</h3>
+                <ul style="font-size:1.2rem; line-height:1.8; text-align:left;">
+                    <li>✅ Revisión técnica de equipamiento existente</li>
+                    <li>✅ Análisis PESTEL y estudio de demanda del sector biomédico</li>
+                    <li>✅ Viabilidad económica: inversión inicial y retorno</li>
+                    <li>✅ Benchmarking con laboratorios nacionales e internacionales</li>
+                    <li>✅ Estudio de competencia directa e indirecta</li>
+                </ul>
+            </div>
+            <div class="resumen-empresa">
+                <h3>Alcance del Proyecto</h3>
+                <p style="font-size:1.2rem; line-height:1.8;">
+                    Creación de laboratorio completo con servicios de <strong>procesamiento histológico y citológico</strong>, investigación biomédica, oncología, patología, investigación farmacéutica, estudios de ultraestructura y puesta en marcha del <strong>microtomo de obsidiana</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto">
+            <h2>📞 Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <div id="alertSuccess" class="alert alert-success">
+                        ✅ ¡Mensaje enviado correctamente! Te contactaremos en 24 horas.
+                    </div>
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="👤 Tu nombre completo" required>
+                        <input type="email" name="email" placeholder="📧 Tu email" required>
+                        <input type="tel" name="phone" placeholder="📱 Teléfono (opcional)">
+                        <select name="service" required>
+                            <option value="">🔬 Selecciona un servicio</option>
+                            <option value="histologia">Procesamiento Histológico</option>
+                            <option value="citologia">Citología Avanzada</option>
+                            <option value="investigacion">Investigación Biomédica</option>
+                            <option value="presupuesto">Presupuesto Personalizado</option>
+                            <option value="colaboracion">Colaboración I+D</option>
+                        </select>
+                        <textarea name="message" rows="5" placeholder="💬 Cuéntanos qué necesitas... Presupuestos, colaboraciones, consultas técnicas..." required></textarea>
+                        <button type="submit" class="submit-btn">🚀 Enviar Consulta</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <p><strong>laboratoriotissuum@gmail.com</strong></p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <p><strong>Castellón de la Plana</strong><br>Comunidad Valenciana, España 🇪🇸</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">⏰</span>
+                        <p><strong>Horario de atención:</strong><br>Lunes a Viernes: 9:00 - 18:00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
+            <a href="#" onclick="mostrarSeccion('innovacion')">✨ Innovación</a>
+            <a href="#" onclick="mostrarSeccion('servicios')">🧬 Servicios</a>
+            <a href="#" onclick="mostrarSeccion('modelo')">📊 Negocio</a>
+            <a href="#" onclick="mostrarSeccion('proceso')">⚙️ Proceso</a>
+            <a href="#" onclick="mostrarSeccion('contacto')">📞 Contacto</a>
+        </div>
+        <p>&copy; 2026 Laboratorios TISSUUM – Anatomía Patológica Avanzada | Castellón, España</p>
+    </footer>
+
+    <script>
+        function mostrarSeccion(idSeccion) {
+            document.querySelectorAll('section').forEach(seccion => {
+                seccion.classList.remove('active');
+            });
+            document.getElementById(idSeccion).classList.add('active');
+            document.querySelectorAll('nav a, .footer-links a').forEach(enlace => {
+                enlace.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // FORMULARIO CONTACTO FUNCIONAL
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const subject = `Nueva consulta TISSUUM Labs - ${formData.get('service') || 'General'}`;
+            const body = `👤 Nombre: ${formData.get('name')}
+📧 Email: ${formData.get('email')}
+📱 Teléfono: ${formData.get('phone') || 'No proporcionado'}
+🔬 Servicio: ${formData.get('service')}
+💬 Mensaje: ${formData.get('message')}`;
+            
+            const mailtoLink = `mailto:laboratoriotissuum@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            document.getElementById('alertSuccess').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('alertSuccess').style.display = 'none';
+            }, 7000);
+        });
+
+        // Inicializar en INICIO
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarSeccion('inicio');
+        });
+    </script>
+</body>
+</html>
