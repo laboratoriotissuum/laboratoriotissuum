@@ -203,7 +203,7 @@
             margin-top: 5rem; box-shadow: 0 -25px 80px var(--sombra-rosa);
         }
         .footer-links {
-            display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem;
+            display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem;
             flex-wrap: wrap;
         }
         .footer-links a {
@@ -214,6 +214,25 @@
         .footer-links a:hover {
             background: var(--blanco); color: var(--rosa-principal);
             transform: translateY(-8px); box-shadow: 0 25px 70px var(--sombra-rosa);
+        }
+        .social-links {
+            display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;
+        }
+        .social-link {
+            color: var(--rosa-neon-claro);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0.8rem 1.6rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.05);
+        }
+        .social-link:hover {
+            background: var(--blanco);
+            color: var(--rosa-principal);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px var(--sombra-rosa);
         }
 
         @media (max-width: 768px) {
@@ -411,11 +430,16 @@
                         <span class="contact-icon">⏰</span>
                         <p><strong>Horario:</strong><br>Lun-Vie 9:00-18:00</p>
                     </div>
+                    <p style="margin-top:2rem; font-size:1.1rem;">
+                        Síguenos en redes: 
+                        <strong>@laboratoriotissuum</strong> en Instagram, TikTok y LinkedIn.
+                    </p>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER CON REDES SOCIALES -->
     <footer>
         <div class="footer-links">
             <a href="#" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
@@ -425,23 +449,31 @@
             <a href="#" onclick="mostrarSeccion('proceso')">⚙️ Proceso</a>
             <a href="#" onclick="mostrarSeccion('contacto')">📞 Contacto</a>
         </div>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/laboratoriotissuum" target="_blank" rel="noopener" class="social-link">
+                📸 Instagram
+            </a>
+            <a href="https://www.tiktok.com/@laboratoriotissuum" target="_blank" rel="noopener" class="social-link">
+                🎵 TikTok
+            </a>
+            <a href="https://www.linkedin.com/company/laboratoriotissuum" target="_blank" rel="noopener" class="social-link">
+                💼 LinkedIn
+            </a>
+        </div>
+
         <p>&copy; 2026 Laboratorios TISSUUM – Anatomía Patológica Avanzada | Castellón, España</p>
     </footer>
 
     <script>
         function mostrarSeccion(id) {
-            // Ocultar todas las secciones
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            // Mostrar sección seleccionada
             document.getElementById(id).classList.add('active');
-            // Actualizar navegación activa
             document.querySelectorAll('nav a, .footer-links a').forEach(a => a.classList.remove('active'));
             event.target.classList.add('active');
-            // Scroll suave al inicio
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // Formulario contacto funcional
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contactForm');
             const alertSuccess = document.getElementById('alertSuccess');
@@ -464,7 +496,6 @@
                 setTimeout(() => alertSuccess.style.display = 'none', 7000);
             });
 
-            // Inicializar en INICIO
             mostrarSeccion('inicio');
         });
     </script>
