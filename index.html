@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Laboratorios TISSUUM – Anatomía Patológica | Castellón</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Laboratorio de anatomía patológica en Castellón. Microtomo obsidiana para cortes ultrafinos 0.5-2µm. ISO 15189 acreditado.">
+    <meta name="description" content="Laboratorio de anatomía patológica en Castellón. Microtomo obsidiana para cortes ultrafinos 0.5-2µm.">
     <meta name="keywords" content="anatomía patológica, microtomo, histología, citología, Castellón">
     <meta property="og:title" content="Laboratorios TISSUUM – Anatomía Patológica Avanzada">
-    <meta property="og:description" content="Centro acreditado ISO 15189 especializado en anatomía patológica e innovación histológica en Castellón.">
+    <meta property="og:description" content="Centro especializado en anatomía patológica e innovación histológica en Castellón.">
     <meta property="og:image" content="https://i.imgur.com/RgSLwrb.png">
     <link rel="icon" href="https://i.imgur.com/RgSLwrb.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0.8rem 1.5rem;
             display: flex;
@@ -59,6 +59,7 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+            flex-shrink: 0;
         }
 
         .logo img {
@@ -77,11 +78,10 @@
             box-shadow: 0 18px 45px var(--sombra-rosa);
         }
 
-        /* NAV SUPERIOR SIN INICIO */
         nav ul {
             display: flex;
             list-style: none;
-            gap: 0.7rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
@@ -90,12 +90,12 @@
             text-decoration: none;
             color: var(--rosa-principal);
             font-weight: 700;
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 0.9rem;
             border-radius: 999px;
             transition: all 0.3s;
             border: 2px solid transparent;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             background: rgba(212, 129, 200, 0.08);
             white-space: nowrap;
         }
@@ -177,14 +177,18 @@
             background-clip: text;
         }
 
-        p {
-            font-size: 1.05rem;
+        p { font-size: 1.05rem; }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
-        .grid-3 { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 2rem; 
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         .card {
@@ -237,16 +241,226 @@
             text-align: center;
         }
 
-        .resumen-empresa p {
-            font-size: 1.08rem;
-        }
+        .resumen-empresa p { font-size: 1.08rem; }
 
-        .contact-container {
+        .stats-bar {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
         }
 
+        .stat-item {
+            background: linear-gradient(145deg, #fdf0f9, #f7e4f3);
+            border-radius: 20px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid rgba(212, 129, 200, 0.3);
+            box-shadow: 0 10px 28px rgba(212, 129, 200, 0.2);
+        }
+
+        .stat-numero {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--rosa-principal), var(--rosa-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #7a4060;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.8rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--rosa-neon), var(--rosa-principal));
+            border-radius: 999px;
+        }
+
+        .timeline-paso {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.8rem 1.8rem 1.8rem 2rem;
+            background: linear-gradient(145deg, #ffffff, #fdf0f9);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 129, 200, 0.25);
+            box-shadow: 0 10px 30px rgba(212, 129, 200, 0.2);
+        }
+
+        .timeline-paso::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 1.8rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
+            box-shadow: 0 0 0 4px rgba(212, 129, 200, 0.25);
+        }
+
+        .paso-numero {
+            font-size: 0.75rem;
+            font-weight: 900;
+            color: var(--rosa-neon);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.4rem;
+        }
+
+        .paso-titulo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--rosa-principal);
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(212, 129, 200, 0.3);
+            border-radius: 18px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(212, 129, 200, 0.15);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover { box-shadow: 0 14px 40px rgba(212, 129, 200, 0.3); }
+
+        .faq-pregunta {
+            width: 100%;
+            background: linear-gradient(145deg, #ffffff, #fdf0f9);
+            border: none;
+            padding: 1.4rem 1.6rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--rosa-principal);
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .faq-pregunta:hover { background: linear-gradient(145deg, #fdf0f9, #f7e4f3); }
+
+        .faq-icono {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--rosa-neon);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item.abierto .faq-icono { transform: rotate(45deg); }
+
+        .faq-respuesta {
+            display: none;
+            padding: 0 1.6rem 1.4rem;
+            background: linear-gradient(145deg, #fdf0f9, #f7e4f3);
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--texto);
+            border-top: 1px solid rgba(212, 129, 200, 0.2);
+        }
+
+        .faq-item.abierto .faq-respuesta { display: block; }
+
+        .acred-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .acred-card {
+            background: linear-gradient(145deg, #ffffff, #fdf0f9);
+            border-radius: 20px;
+            padding: 1.8rem;
+            border: 1px solid rgba(212, 129, 200, 0.3);
+            box-shadow: 0 10px 30px rgba(212, 129, 200, 0.2);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .acred-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(212, 129, 200, 0.35);
+        }
+
+        .acred-icono { font-size: 2.8rem; margin-bottom: 0.8rem; display: block; }
+        .acred-titulo { font-size: 1.1rem; font-weight: 800; color: var(--rosa-principal); margin-bottom: 0.5rem; }
+        .acred-desc { font-size: 0.92rem; color: #6a3050; line-height: 1.6; }
+
+        .caso-card {
+            background: linear-gradient(145deg, #ffffff, #fdf0f9);
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            border: 1px solid rgba(212, 129, 200, 0.3);
+            box-shadow: 0 14px 40px rgba(212, 129, 200, 0.2);
+            margin-bottom: 1.8rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .caso-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            width: 6px;
+            background: linear-gradient(180deg, var(--rosa-neon), var(--rosa-principal));
+        }
+
+        .caso-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 60px rgba(212, 129, 200, 0.35);
+        }
+
+        .caso-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+        .caso-tipo {
+            background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .caso-titulo { font-size: 1.2rem; font-weight: 800; color: var(--rosa-principal); }
+
+        .caso-resultado {
+            background: rgba(212, 129, 200, 0.12);
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #5a2040;
+            border-left: 4px solid var(--rosa-neon);
+        }
+
+        .contact-container { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; }
         .contact-form { display: grid; gap: 1.4rem; }
 
         input, textarea, select {
@@ -267,10 +481,7 @@
             transform: translateY(-2px);
         }
 
-        textarea {
-            resize: vertical;
-            min-height: 130px;
-        }
+        textarea { resize: vertical; min-height: 130px; }
 
         .submit-btn {
             background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
@@ -287,15 +498,12 @@
             box-shadow: 0 18px 50px rgba(212, 129, 200, 0.55);
         }
 
-        .submit-btn:hover { 
-            transform: translateY(-4px) scale(1.02); 
+        .submit-btn:hover {
+            transform: translateY(-4px) scale(1.02);
             box-shadow: 0 26px 70px rgba(212, 129, 200, 0.65);
         }
 
-        .contact-info h3 {
-            margin-bottom: 1.8rem;
-            font-size: 1.6rem;
-        }
+        .contact-info h3 { margin-bottom: 1.8rem; font-size: 1.6rem; }
 
         .contact-item {
             display: flex;
@@ -327,7 +535,7 @@
             display: none;
             text-align: center;
             font-size: 0.98rem;
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.12);
         }
 
         .alert-success {
@@ -336,13 +544,7 @@
             border: 2px solid #94f4c5;
         }
 
-        /* Redes sociales verticales en contacto */
-        .social-links-vertical {
-            display: flex;
-            flex-direction: column;
-            gap: 0.9rem;
-            margin-top: 1.5rem;
-        }
+        .social-links-vertical { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.5rem; }
 
         .social-link {
             color: #4a2740;
@@ -366,8 +568,37 @@
         }
 
         .social-link.instagram { border-left: 5px solid #E4405F; }
-        .social-link.tiktok { border-left: 5px solid #000000; }
-        .social-link.linkedin { border-left: 5px solid #0077B5; }
+        .social-link.tiktok    { border-left: 5px solid #000000; }
+        .social-link.linkedin  { border-left: 5px solid #0077B5; }
+
+        .foto-circulo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f3d7eb, #d481c8);
+            border: 3px solid var(--rosa-neon);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(212, 129, 200, 0.35);
+        }
+
+        .foto-circulo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .ods-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.5rem; }
+
+        .ods-badge {
+            background: linear-gradient(45deg, var(--rosa-neon), var(--rosa-principal));
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(212, 129, 200, 0.4);
+        }
 
         footer {
             background: linear-gradient(135deg, var(--rosa-principal), var(--rosa-medio));
@@ -379,24 +610,18 @@
             font-size: 0.95rem;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.4rem;
-        }
+        .footer-links { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
 
         .footer-links a {
             color: var(--rosa-neon-claro);
             text-decoration: none;
             font-weight: 800;
-            padding: 0.6rem 1.4rem;
+            padding: 0.5rem 1rem;
             border-radius: 999px;
             transition: all 0.3s;
             border: 2px solid rgba(255,255,255,0.4);
             background: rgba(255,255,255,0.08);
-            font-size: 0.9rem;
+            font-size: 0.82rem;
         }
 
         .footer-links a:hover {
@@ -406,38 +631,34 @@
             box-shadow: 0 14px 40px var(--sombra-rosa);
         }
 
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav ul {
-                justify-content: center;
-            }
+        @media (max-width: 900px) {
+            .header-container { flex-direction: column; align-items: center; }
+            nav ul { justify-content: center; }
             .logo { width: 230px; height: 75px; }
             section { padding: 2.3rem 1.6rem; }
             .contact-container { grid-template-columns: 1fr; gap: 2rem; }
             h1 { font-size: 2.4rem; }
             h2 { font-size: 2rem; }
             .grid-3 { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="header-container">
-            <!-- LOGO: vuelve SIEMPRE al INICIO -->
             <div class="logo" id="logoTissuum">
                 <img src="https://i.imgur.com/RgSLwrb.png" alt="Laboratorios TISSUUM - Logo" loading="lazy">
             </div>
-
-            <!-- NAV SOLO CON INNOVACIÓN, SERVICIOS, NEGOCIO, PROCESO, CONTACTO -->
             <nav>
                 <ul>
                     <li><a href="#" data-section="innovacion">✨ Innovación</a></li>
                     <li><a href="#" data-section="servicios">🧬 Servicios</a></li>
                     <li><a href="#" data-section="modelo">📊 Negocio</a></li>
                     <li><a href="#" data-section="proceso">⚙️ Proceso</a></li>
+                    <li><a href="#" data-section="calidad">🏅 Calidad</a></li>
+                    <li><a href="#" data-section="proyectos">🔭 Proyectos</a></li>
+                    <li><a href="#" data-section="faq">❓ FAQ</a></li>
                     <li><a href="#" data-section="contacto">📞 Contacto</a></li>
                 </ul>
             </nav>
@@ -445,35 +666,61 @@
     </header>
 
     <main>
-        <!-- INICIO (solo se accede con el logo) -->
+
+        <!-- INICIO -->
         <section id="inicio" class="active">
             <h1>Laboratorios TISSUUM</h1>
             <div class="resumen-empresa">
                 <p>
-                    <strong>Laboratorios TISSUUM</strong> es un centro especializado en 
-                    <strong>anatomía patológica y técnicas histológicas avanzadas</strong> ubicado en 
-                    <strong>Castellón</strong>. Combinamos innovación tecnológica con precisión diagnóstica, 
-                    utilizando <em>microtomos de obsidiana</em> para lograr cortes ultrafinos de tejidos 
-                    con una calidad sin precedentes. Nuestro compromiso con la excelencia y acreditación 
-                    <strong>ISO 15189</strong> garantiza resultados de alta fiabilidad para hospitales, laboratorios de I+D y centros universitarios.
+                    <strong>Laboratorios TISSUUM</strong> es un centro de referencia en
+                    <strong>anatomía patológica y técnicas histológicas de precisión</strong>, ubicado en
+                    <strong>Almazora, Castellón</strong>. Nuestra actividad se sustenta en la incorporación de
+                    <em>microtomos con cuchillas de obsidiana</em>, tecnología que permite obtener cortes ultrafinos
+                    de tejido con una calidad morfológica sin precedentes. El rigor científico, la trazabilidad
+                    completa y el compromiso con la mejora continua definen cada uno de nuestros procesos,
+                    garantizando resultados de alta fiabilidad a hospitales, centros de investigación y
+                    laboratorios especializados.
                 </p>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-numero">500x</div>
+                    <div class="stat-label">Más afilado que el acero quirúrgico</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-numero">35%</div>
+                    <div class="stat-label">Reducción de artefactos de corte</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-numero">0.5µm</div>
+                    <div class="stat-label">Grosor mínimo de corte</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-numero">24h</div>
+                    <div class="stat-label">Tiempo de respuesta máximo</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-numero">ISO</div>
+                    <div class="stat-label">Protocolos de calidad certificados</div>
+                </div>
             </div>
 
             <div class="grid-3">
                 <div class="card">
                     <span class="etiqueta">Innovación</span>
                     <h3>Cuchilla Obsidiana</h3>
-                    <p><strong>500x más afilada</strong> que el acero quirúrgico. Cortes de <strong>0.5-2µm</strong> sin artefactos visibles.</p>
+                    <p>La estructura amorfa de la obsidiana genera un filo molecular extremadamente regular, <strong>500 veces más afilado</strong> que el acero quirúrgico. Cortes de <strong>0.5–2µm</strong> sin artefactos visibles.</p>
                 </div>
                 <div class="card">
-                    <span class="etiqueta">Objetivo</span>
-                    <h3>Reducción 35%</h3>
-                    <p>Reducción del <strong>35% en artefactos</strong> frente al microtomo convencional, favoreciendo diagnósticos más precisos.</p>
+                    <span class="etiqueta">Calidad</span>
+                    <h3>Reducción 35% Artefactos</h3>
+                    <p>Frente al microtomo convencional, eliminamos estrías, arrugas, roturas tisulares y compresiones. Diagnósticos más precisos y fiables para oncología y patología experimental.</p>
                 </div>
                 <div class="card">
                     <span class="etiqueta">Mercado</span>
                     <h3>Oncología + I+D</h3>
-                    <p>Hospitales, clínicas, universidades y farmacéuticas con un <strong>servicio único</strong> en España.</p>
+                    <p>Atendemos hospitales, clínicas privadas, universidades, centros de investigación biomédica y farmacéuticas con un <strong>servicio único</strong> en España.</p>
                 </div>
             </div>
         </section>
@@ -481,27 +728,39 @@
         <!-- INNOVACIÓN -->
         <section id="innovacion">
             <h2>✨ Innovación Tecnológica</h2>
-            <div class="resumen-empresa" style="text-align: left; max-width: 100%;">
-                <p style="margin-bottom: 1.4rem;">
-                    <strong>Contexto actual:</strong> Incremento de patologías complejas con poca diferenciación entre ellas 
-                    (cánceres, enfermedades degenerativas), que demandan preparaciones histológicas de máxima calidad.
+            <div class="resumen-empresa" style="text-align:left; max-width:100%;">
+                <p style="margin-bottom:1.4rem;">
+                    <strong>Contexto actual:</strong> La creciente demanda de diagnósticos precisos en oncología,
+                    patología y farmacéutica exige preparaciones histológicas de máxima calidad. Las cuchillas
+                    convencionales presentan limitaciones de desgaste, artefactos y material desechable excesivo.
                 </p>
                 <div class="grid-3">
                     <div class="card">
                         <span class="etiqueta">Problema</span>
                         <h3>Microtomos Tradicionales</h3>
-                        <p>Limitaciones en regularidad del filo y durabilidad que provocan artefactos como estrías, arrugas, roturas tisulares, compresión y estiramiento.</p>
+                        <p>Limitaciones en regularidad del filo y durabilidad que provocan artefactos como estrías, arrugas, roturas tisulares, compresión y estiramiento que dificultan el diagnóstico.</p>
                     </div>
                     <div class="card">
                         <span class="etiqueta">Solución</span>
                         <h3>Cuchilla Obsidiana</h3>
-                        <p>La <strong>fractura concoidea</strong> de la obsidiana genera un filo extremadamente recto y fino, con cortes homogéneos y mínima deformación tisular.</p>
+                        <p>La <strong>fractura concoidea</strong> de la obsidiana genera un filo extremadamente recto y fino. Vidrio volcánico natural sin metales pesados ni contaminantes, con menor impacto ambiental.</p>
                     </div>
                     <div class="card">
                         <span class="etiqueta">Resultado</span>
-                        <h3>Innovación Única</h3>
-                        <p>Tecnología diferencial respecto a laboratorios convencionales, estableciendo un <strong>nuevo estándar de calidad</strong> en anatomía patológica.</p>
+                        <h3>Nuevo Estándar</h3>
+                        <p>Mejor conservación de la arquitectura tisular, mayor precisión en el análisis morfológico y tecnología diferencial que nos posiciona en un segmento de <strong>alta especialización</strong>.</p>
                     </div>
+                </div>
+            </div>
+            <div class="resumen-empresa" style="max-width:100%;">
+                <h3 style="margin-bottom:1rem;">🌱 Compromiso Sostenible</h3>
+                <p style="margin-bottom:1rem;">La obsidiana es un vidrio volcánico natural que <strong>no contiene metales pesados ni contaminantes</strong>. Su mayor durabilidad reduce la generación de residuos. El laboratorio trabaja alineado con los principios <strong>Net Zero 2050</strong> y los ODS de la Agenda 2030.</p>
+                <div class="ods-grid">
+                    <span class="ods-badge">ODS 3 – Salud y bienestar</span>
+                    <span class="ods-badge">ODS 7 – Energía no contaminante</span>
+                    <span class="ods-badge">ODS 9 – Innovación e infraestructura</span>
+                    <span class="ods-badge">ODS 12 – Consumo responsable</span>
+                    <span class="ods-badge">ODS 13 – Acción por el clima</span>
                 </div>
             </div>
         </section>
@@ -509,60 +768,298 @@
         <!-- SERVICIOS -->
         <section id="servicios">
             <h2>🧬 Servicios Especializados</h2>
-            <div class="grid-3">
+            <div class="grid-3" style="margin-bottom:2rem;">
                 <div class="card">
                     <span class="etiqueta">Histología</span>
-                    <h3>Cortes Ultrafinos</h3>
-                    <p>Cortes de <strong>0.5-2µm</strong> para microscopía óptica avanzada y correlativa con mínima deformación del tejido.</p>
+                    <h3>Microcortes Ultrafinos</h3>
+                    <p>Cortes de <strong>0.5–2µm</strong> con cuchilla de obsidiana para microscopía óptica avanzada y correlativa. Fijación, inclusión en parafina, blocaje y tinción adaptada a cada muestra.</p>
                 </div>
                 <div class="card">
                     <span class="etiqueta">Citología</span>
-                    <h3>Análisis Celular</h3>
-                    <p>Preparaciones citológicas de alta definición para diagnóstico oncológico y estudios celulares detallados.</p>
+                    <h3>Citodiagnóstico Avanzado</h3>
+                    <p>Preparaciones citológicas de alta definición para diagnóstico oncológico. Análisis microscópico con emisión de <strong>informes claros, fiables y bien documentados</strong>.</p>
                 </div>
                 <div class="card">
                     <span class="etiqueta">I+D</span>
                     <h3>Investigación Biomédica</h3>
-                    <p>Colaboración con universidades, hospitales y farmacéuticas en proyectos de ultraestructura y patología experimental.</p>
+                    <p>Colaboración técnica con universidades, hospitales y farmacéuticas en proyectos de ultraestructura y patología experimental. Apoyo en validación de nuevos métodos.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Biopsias</span>
+                    <h3>Análisis Histopatológico</h3>
+                    <p>Procesado de biopsias quirúrgicas e intraoperatorias para centros sanitarios públicos y privados, con trazabilidad completa desde la recepción hasta el informe.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Servicios Externos</span>
+                    <h3>Laboratorios Externos</h3>
+                    <p>Servicio de microcorte ultrafinopara laboratorios externos sin tecnología avanzada. Cobertura regional con posibilidad de expansión nacional.</p>
+                </div>
+                <div class="card">
+                    <span class="etiqueta">Digitalización</span>
+                    <h3>Microscopía Digital</h3>
+                    <p>Análisis de imágenes, digitalización de preparaciones y mejora de informes. Integración con sistemas hospitalarios (SIL) para la gestión eficiente de resultados.</p>
+                </div>
+            </div>
+            <div class="resumen-empresa">
+                <h3>¿A quién nos dirigimos?</h3>
+                <p>Hospitales públicos y privados · Clínicas especializadas · Centros de investigación biomédica · Universidades y grupos de investigación · Laboratorios de histología externos · Institutos de medicina legal y forense · Empresas farmacéuticas · Administraciones públicas en proyectos científicos</p>
+            </div>
+        </section>
+
+        <!-- NEGOCIO / EQUIPO -->
+        <section id="modelo">
+            <h2>📊 Equipo y Localización</h2>
+
+            <div style="border-radius:24px; overflow:hidden; border:1px solid rgba(212,129,200,0.35); box-shadow:0 16px 45px var(--sombra-rosa); margin-bottom:1rem;">
+                <iframe
+                    src="https://www.google.com/maps?q=Carrer+Santa+Quit%C3%A8ria,+239,+12550+Almassora,+Castell%C3%B3&output=embed"
+                    width="100%" height="320"
+                    style="border:none; display:block;"
+                    allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p style="text-align:center; margin-bottom:2.5rem; font-size:1rem;">
+                📍 <strong>Calle Santa Quiteria, frente al nº 239 – Almazora (Castellón)</strong> · Próximo al Hospital Universitario de La Plana de Vila-Real
+            </p>
+
+            <h3 style="text-align:center; margin-bottom:2rem; font-size:1.8rem;">🧑‍🔬 Nuestro Equipo</h3>
+
+            <div class="grid-3">
+                <div class="card" style="text-align:center;">
+                    <div class="foto-circulo">👤</div>
+                    <span class="etiqueta">Director General</span>
+                    <h3>Vicent Ortells</h3>
+                    <p>Estrategia global del laboratorio, coordinación de departamentos y garantía de la calidad científica, técnica y organizativa.</p>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <div class="foto-circulo">👤</div>
+                    <span class="etiqueta">Gestión de Muestras</span>
+                    <h3>Francisco Jesús Huertas Fernández</h3>
+                    <p>Trazabilidad completa de muestras desde la recepción hasta el archivo. Coordinación con hospitales, clínicas y otros centros.</p>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <div class="foto-circulo">👤</div>
+                    <span class="etiqueta">Administración y Finanzas</span>
+                    <h3>Núria Pitarch</h3>
+                    <p>Administración general, facturación, compras, trámites y gestión de documentación de bioseguridad, contratos, licencias y seguros.</p>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <div class="foto-circulo">👤</div>
+                    <span class="etiqueta">Técnica Histológica</span>
+                    <h3>Nicolás Ortega</h3>
+                    <p>Desarrollo de las fases técnicas del procedimiento histológico: deshidratación, procesado, inclusión en parafina y cortes con microtomo de obsidiana.</p>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <div class="foto-circulo">👤</div>
+                    <span class="etiqueta">Recursos Humanos</span>
+                    <h3>Laura Llopis</h3>
+                    <p>Organización de turnos, horarios, formación continua del personal y responsable de prevención de riesgos laborales.</p>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <div class="foto-circulo">👤</div>
+                    <span class="etiqueta">Investigación y Desarrollo</span>
+                    <h3>Paula Calabria</h3>
+                    <p>Análisis de imágenes, digitalización e informes. Desarrollo y validación de nuevos métodos, incluyendo mejoras en el microtomo con cuchilla de obsidiana.</p>
+                </div>
+                <div class="card" style="text-align:center; grid-column:1/-1; max-width:320px; margin:0 auto; width:100%;">
+                    <div class="foto-circulo">👤</div>
+                    <span class="etiqueta">Departamento Médico</span>
+                    <h3>Dr. Juan García</h3>
+                    <p>Revisión microscópica de láminas, emisión de informes diagnósticos, correlación clínico-patológica y supervisión científica del trabajo técnico.</p>
                 </div>
             </div>
         </section>
 
-        <!-- MODELO DE NEGOCIO -->
-        <section id="modelo">
-            <h2>📊 Objetivos del Proyecto</h2>
-            <div class="resumen-empresa">
-                <h3>Construcción Laboratorio Especializado</h3>
-                <p style="margin-bottom: 1rem;">
-                    Laboratorio equipado con <strong>microtomo de obsidiana</strong> capaz de realizar cortes ultrafinos de <strong>0.5-2µm</strong> aptos para 
-                    <strong>microscopía óptica avanzada y correlativa</strong>.
-                </p>
-                <p>
-                    <strong>Estándar de calidad:</strong> reducción de artefactos, aumento de la nitidez, alianzas con universidades y hospitales y un 
-                    <strong>servicio único</strong> no disponible en laboratorios clínicos convencionales.
-                </p>
+        <!-- PROCESO DE LA MUESTRA -->
+        <section id="proceso">
+            <h2>⚙️ Proceso de la Muestra</h2>
+            <div class="resumen-empresa" style="margin-bottom:2.5rem;">
+                <p>Cada muestra que llega a Laboratorios TISSUUM se gestiona conforme a un <strong>protocolo estandarizado y documentado</strong> que garantiza la trazabilidad, la integridad biológica y la calidad diagnóstica en todas sus fases. El siguiente flujo describe el recorrido completo desde la solicitud del centro clínico hasta la devolución del informe al médico responsable.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 01</div>
+                    <div class="paso-titulo">📋 Solicitud del Servicio</div>
+                    <p>El centro hospitalario o clínica solicita el análisis especificando el tipo de muestra biológica, prioridad diagnóstica, datos clínicos relevantes y si existe condición de urgencia. Se abre el expediente y se asigna un código único de trazabilidad.</p>
+                </div>
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 02</div>
+                    <div class="paso-titulo">📦 Recepción e Identificación</div>
+                    <p>Las muestras se recepcionan en el laboratorio, se registran en el sistema de información (SIL) y se verifican conforme a los protocolos de bioseguridad y trazabilidad establecidos. Se comprueba el estado de conservación y la documentación acompañante.</p>
+                </div>
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 03</div>
+                    <div class="paso-titulo">🧪 Preparación Histológica</div>
+                    <p>El tejido se somete a <strong>fijación</strong> en formol tamponado para preservar la arquitectura celular, seguido de <strong>deshidratación progresiva</strong>, <strong>inclusión en parafina</strong> y <strong>blocaje</strong>. Este proceso garantiza la correcta conservación de las estructuras tisulares.</p>
+                </div>
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 04</div>
+                    <div class="paso-titulo">✂️ Corte con Microtomo de Obsidiana</div>
+                    <p>Se realizan cortes histológicos ultrafinos de <strong>0.5 a 2 µm</strong> utilizando el microtomo de rotación equipado con cuchillas de obsidiana. La fractura concoidea del material garantiza un filo molecular extraordinariamente regular, reduciendo un <strong>35% los artefactos</strong> frente a cuchillas convencionales.</p>
+                </div>
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 05</div>
+                    <div class="paso-titulo">🎨 Tinción Histológica</div>
+                    <p>Los cortes obtenidos se tiñen mediante técnicas histológicas adaptadas a las necesidades de cada muestra y tipo de estudio. Las tinciones básicas y especiales resaltan las estructuras de interés diagnóstico.</p>
+                </div>
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 06</div>
+                    <div class="paso-titulo">🔬 Análisis Microscópico</div>
+                    <p>El Dr. Juan García realiza la revisión microscópica de las láminas, con el apoyo del departamento de I+D para digitalización y análisis de imagen. Se aplican protocolos de control de calidad y validación según normativa oficial.</p>
+                </div>
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 07</div>
+                    <div class="paso-titulo">📄 Emisión del Informe</div>
+                    <p>Se elabora el <strong>informe diagnóstico permanente y detallado</strong> que se remite de forma segura al centro sanitario solicitante. En situaciones urgentes se realiza comunicación directa con el personal responsable. El informe incluye correlación clínico-patológica completa.</p>
+                </div>
+                <div class="timeline-paso">
+                    <div class="paso-numero">Paso 08</div>
+                    <div class="paso-titulo">🗂️ Archivo y Seguimiento</div>
+                    <p>Las muestras e informes se conservan bajo condiciones controladas durante el tiempo legalmente establecido. Los residuos se gestionan según la normativa vigente de residuos biosanitarios. La confidencialidad de toda la información clínica queda garantizada en todo momento.</p>
+                </div>
             </div>
         </section>
 
-        <!-- PROCESO -->
-        <section id="proceso">
-            <h2>⚙️ Metodología y Alcance</h2>
-            <div class="resumen-empresa" style="margin-bottom: 1.6rem;">
-                <h3>Metodología Implementada</h3>
-                <ul style="font-size:1.02rem; line-height:1.8; text-align:left; max-width:800px; margin:0 auto;">
-                    <li>✅ Revisión técnica del equipamiento existente.</li>
-                    <li>✅ Análisis PESTEL y demanda en el sector biomédico.</li>
-                    <li>✅ Estudio de viabilidad económica (inversión / retorno).</li>
-                    <li>✅ Benchmarking con laboratorios internacionales.</li>
-                    <li>✅ Evaluación de competencia directa e indirecta.</li>
-                </ul>
+        <!-- CALIDAD Y ACREDITACIONES -->
+        <section id="calidad">
+            <h2>🏅 Calidad y Acreditaciones</h2>
+            <div class="resumen-empresa" style="margin-bottom:2.5rem;">
+                <p>En Laboratorios TISSUUM el control de calidad no es una fase aislada, sino un eje transversal que atraviesa cada etapa del proceso diagnóstico. Aplicamos protocolos estandarizados de verificación, trazabilidad y bioseguridad que garantizan la fiabilidad de los resultados y la seguridad biológica en todo momento. Nuestra actividad se desarrolla en estricto cumplimiento de la normativa sanitaria nacional y europea aplicable a centros de diagnóstico biomédico.</p>
             </div>
-            <div class="resumen-empresa">
-                <h3>Alcance del Proyecto</h3>
-                <p>
-                    Laboratorio completo de <strong>histología y citología</strong>, investigación biomédica, oncología, patología experimental y 
-                    tecnología basada en <strong>microtomo de obsidiana</strong>.
-                </p>
+            <div class="acred-grid">
+                <div class="acred-card">
+                    <span class="acred-icono">🔐</span>
+                    <div class="acred-titulo">Trazabilidad Completa</div>
+                    <div class="acred-desc">Identificación única de cada muestra desde la recepción hasta el archivo. Registro en sistema SIL con trazabilidad total del proceso.</div>
+                </div>
+                <div class="acred-card">
+                    <span class="acred-icono">🧫</span>
+                    <div class="acred-titulo">Bioseguridad</div>
+                    <div class="acred-desc">Protocolos de bioseguridad obligatorios conforme al Real Decreto 664/1997 sobre protección frente a agentes biológicos en el trabajo.</div>
+                </div>
+                <div class="acred-card">
+                    <span class="acred-icono">📋</span>
+                    <div class="acred-titulo">Normativa Sanitaria</div>
+                    <div class="acred-desc">Autorización sanitaria para laboratorios clínicos, licencia municipal de actividad y cumplimiento del RD 1277/2003 sobre centros sanitarios.</div>
+                </div>
+                <div class="acred-card">
+                    <span class="acred-icono">🔒</span>
+                    <div class="acred-titulo">Protección de Datos</div>
+                    <div class="acred-desc">Cumplimiento del RGPD y la LOPD en la gestión de información clínica de pacientes. Acuerdos de confidencialidad con todos los colaboradores.</div>
+                </div>
+                <div class="acred-card">
+                    <span class="acred-icono">♻️</span>
+                    <div class="acred-titulo">Gestión de Residuos</div>
+                    <div class="acred-desc">Gestión de residuos biosanitarios conforme a normativa vigente. Economía circular aplicada a materiales operativos no críticos.</div>
+                </div>
+                <div class="acred-card">
+                    <span class="acred-icono">📊</span>
+                    <div class="acred-titulo">Mejora Continua</div>
+                    <div class="acred-desc">Evaluación periódica del rendimiento de las cuchillas de obsidiana, control de espesor y uniformidad de cortes, y revisión técnica de los análisis.</div>
+                </div>
+                <div class="acred-card">
+                    <span class="acred-icono">⚖️</span>
+                    <div class="acred-titulo">Propiedad Intelectual</div>
+                    <div class="acred-desc">Registro de marca comercial, protección del diseño técnico del microtomo y de los protocolos propios mediante derechos de propiedad industrial e intelectual.</div>
+                </div>
+                <div class="acred-card">
+                    <span class="acred-icono">🤝</span>
+                    <div class="acred-titulo">Ética Profesional</div>
+                    <div class="acred-desc">Transparencia en la comunicación de resultados, igualdad de oportunidades, confidencialidad absoluta y selección de proveedores comprometidos con criterios éticos y ambientales.</div>
+                </div>
+            </div>
+            <div class="resumen-empresa" style="margin-top:1rem;">
+                <h3 style="margin-bottom:1rem;">📜 Normativa que cumplimos</h3>
+                <p>Ley 44/2003 de ordenación de profesiones sanitarias · RD 1277/2003 sobre autorización de centros sanitarios · RD 664/1997 sobre agentes biológicos · RGPD y LOPD · Normativa sobre transporte de muestras biológicas · Legislación de gestión de residuos sanitarios · Normativa de prevención de riesgos laborales (INSST)</p>
+            </div>
+        </section>
+
+        <!-- PROYECTOS Y COLABORACIONES -->
+        <section id="proyectos">
+            <h2>🔭 Proyectos y Colaboraciones</h2>
+            <div class="resumen-empresa" style="margin-bottom:2.5rem;">
+                <p>Laboratorios TISSUUM opera bajo un <strong>modelo de colaboración multisectorial</strong> que integra la prestación de servicios diagnósticos privados, el apoyo técnico a proyectos de investigación y el soporte a laboratorios externos. A continuación se presentan los ámbitos de actuación más representativos de nuestra actividad.</p>
+            </div>
+            <div class="caso-card">
+                <div class="caso-header">
+                    <span class="caso-tipo">Oncología</span>
+                    <span class="caso-titulo">Estudio histopatológico de tejidos tumorales blandos</span>
+                </div>
+                <p>Colaboración con centros hospitalarios para el procesado y análisis de biopsias oncológicas, donde la precisión del corte es crítica para la diferenciación entre tejido sano y tumoral. La cuchilla de obsidiana permite conservar la arquitectura tisular con mínima deformación, mejorando la fiabilidad diagnóstica.</p>
+                <div class="caso-resultado">✅ Reducción significativa de repeticiones analíticas y mayor rapidez en la entrega del informe al oncólogo responsable.</div>
+            </div>
+            <div class="caso-card">
+                <div class="caso-header">
+                    <span class="caso-tipo">Universidad</span>
+                    <span class="caso-titulo">Colaboración técnica en investigación biomédica</span>
+                </div>
+                <p>Apoyo técnico a grupos de investigación universitaria que necesitan preparaciones histológicas de alta precisión para estudios de ultraestructura celular y patología experimental. Proporcionamos cortes ultrafinos, tinciones específicas y análisis microscópico documentado.</p>
+                <div class="caso-resultado">✅ Material histológico de calidad superior para publicaciones científicas, con pleno acceso al equipo técnico para consultas y ajustes metodológicos.</div>
+            </div>
+            <div class="caso-card">
+                <div class="caso-header">
+                    <span class="caso-tipo">Laboratorio Externo</span>
+                    <span class="caso-titulo">Servicio de microcorte para laboratorio sin tecnología avanzada</span>
+                </div>
+                <p>Prestación del servicio de corte histológico a laboratorios clínicos que no disponen de microtomo de alta precisión. El laboratorio remitente envía los bloques de parafina y TISSUUM devuelve las preparaciones listas para análisis junto con el informe técnico del proceso.</p>
+                <div class="caso-resultado">✅ El laboratorio cliente puede ofrecer diagnósticos de mayor calidad sin necesidad de inversión en equipamiento especializado.</div>
+            </div>
+            <div class="caso-card">
+                <div class="caso-header">
+                    <span class="caso-tipo">I+D Farmacéutico</span>
+                    <span class="caso-titulo">Estudios de ultraestructura para desarrollo de fármacos</span>
+                </div>
+                <p>Colaboración con empresas biomédicas y farmacéuticas en proyectos que requieren el análisis morfológico detallado de tejidos tratados con nuevos compuestos. La precisión de los cortes con obsidiana permite detectar cambios tisulares sutiles que serían invisibles con técnicas convencionales.</p>
+                <div class="caso-resultado">✅ Datos histológicos de alta resolución que contribuyen a acortar los tiempos de desarrollo y validación preclínica de nuevos fármacos.</div>
+            </div>
+            <div class="resumen-empresa" style="margin-top:1rem;">
+                <h3 style="margin-bottom:1rem;">🤝 Modalidades de Colaboración</h3>
+                <p><strong>Convenios con hospitales y centros sanitarios</strong> (público y privado) · <strong>Proyectos de investigación y desarrollo</strong> con universidades y empresas biomédicas · <strong>Servicios a laboratorios externos</strong> sin tecnología avanzada de corte · <strong>Apoyo técnico a estudios farmacéuticos</strong> preclínicos · <strong>Financiación complementaria</strong> mediante subvenciones públicas estatales y autonómicas</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>❓ Preguntas Frecuentes</h2>
+            <div class="resumen-empresa" style="margin-bottom:2rem;">
+                <p>A continuación encontrará respuesta a las consultas más habituales que recibimos de centros hospitalarios, laboratorios y grupos de investigación. Si su caso requiere información más específica, no dude en contactar directamente con nuestro equipo.</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Qué ventaja tiene la cuchilla de obsidiana frente a una cuchilla convencional? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">La obsidiana es un vidrio volcánico natural cuya fractura concoidea genera un filo molecular extremadamente regular, 500 veces más afilado que el acero quirúrgico. Esto se traduce en cortes ultrafinos de 0.5 a 2 µm con mínima deformación tisular, eliminando artefactos como estrías, arrugas o compresiones que dificultan el diagnóstico. Además, al ser un material natural sin metales pesados, el impacto ambiental es menor.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Para qué tipos de tejido es adecuado el microtomo de obsidiana? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">El microtomo con cuchilla de obsidiana está especialmente indicado para tejidos blandos como los que se procesan habitualmente en oncología, patología experimental y estudios de ultraestructura. Para tejidos duros o calcificados puede requerirse un tratamiento previo de descalcificación. Nuestro equipo técnico evalúa cada caso para recomendar el protocolo más adecuado.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Cuánto tarda en llegar el informe diagnóstico? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">El tiempo de respuesta habitual es de 24 a 48 horas para estudios de rutina. En casos urgentes realizamos comunicación directa con el personal sanitario responsable para agilizar los plazos. Los tiempos exactos dependen del tipo de estudio, la complejidad de la muestra y si requiere tinciones especiales.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Cómo se envían las muestras al laboratorio? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">Las muestras deben enviarse correctamente fijadas (habitualmente en formol tamponado al 10%) y debidamente identificadas conforme a la normativa de transporte de muestras biológicas. Contamos con socios logísticos especializados que garantizan la cadena de custodia y la normativa de bioseguridad. Puede contactarnos para orientación sobre el protocolo de envío más adecuado.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Qué ocurre con las muestras tras el análisis? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">Las muestras e informes se conservan bajo condiciones controladas durante el tiempo establecido por la normativa vigente, permitiendo el seguimiento clínico y su posible utilización en estudios futuros. Una vez superado el período de conservación, los residuos se gestionan conforme a la normativa de residuos biosanitarios. La confidencialidad de toda la información clínica está garantizada por el RGPD y nuestra política interna.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Es posible establecer un convenio de colaboración continuada? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">Sí, es nuestra modalidad preferida de trabajo. Establecemos convenios de prestación de servicios con hospitales, clínicas y centros de salud tanto públicos como privados, con tarifas por volumen o contratos de pago periódico. También formalizamos acuerdos de colaboración con universidades y grupos de investigación para proyectos de I+D. Contáctenos para preparar una propuesta personalizada.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Ofrecéis servicios de I+D además del diagnóstico clínico? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">Sí. Nuestro departamento de I+D da soporte a proyectos de investigación biomédica, farmacéutica y universitaria que requieren técnicas histológicas avanzadas. Participamos como colaboradores técnicos aportando preparaciones de alta precisión, análisis de imágenes y digitalización de resultados.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿El laboratorio cumple con la normativa sanitaria vigente? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">Sí. Laboratorios TISSUUM cumple con toda la normativa aplicable: Ley 44/2003 de profesiones sanitarias, RD 1277/2003 sobre centros sanitarios, RD 664/1997 sobre protección frente a agentes biológicos, normativa de gestión de residuos biosanitarios, RGPD y LOPD para la protección de datos de pacientes, y la normativa del INSST en materia de prevención de riesgos laborales.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pregunta">¿Existe un volumen mínimo de muestras para acceder al servicio? <span class="faq-icono">+</span></button>
+                <div class="faq-respuesta">No existe volumen mínimo. Trabajamos tanto por pedido puntual como mediante convenios de colaboración continuada. Para clientes con volumen regular ofrecemos tarifas negociadas. Contacte con nosotros para solicitar un presupuesto personalizado sin compromiso.</div>
             </div>
         </section>
 
@@ -572,26 +1069,26 @@
             <div class="contact-container">
                 <div class="contact-form">
                     <div id="alertSuccess" class="alert alert-success">
-                        ✅ Mensaje enviado correctamente. Te contactaremos en un plazo máximo de 24 horas.
+                        ✅ Mensaje enviado correctamente. Nos pondremos en contacto en un plazo máximo de 24 horas.
                     </div>
                     <form id="contactForm">
-                        <input type="text" name="name" placeholder="👤 Tu nombre completo" required>
-                        <input type="email" name="email" placeholder="📧 Tu email corporativo" required>
+                        <input type="text" name="name" placeholder="👤 Nombre completo" required>
+                        <input type="email" name="email" placeholder="📧 Correo electrónico corporativo" required>
                         <input type="tel" name="phone" placeholder="📱 Teléfono (opcional)">
                         <select name="service" required>
-                            <option value="">🔬 Selecciona servicio</option>
+                            <option value="">🔬 Seleccione el tipo de consulta</option>
                             <option value="histologia">Procesamiento Histológico</option>
                             <option value="citologia">Citología Avanzada</option>
                             <option value="investigacion">I+D Biomédica</option>
+                            <option value="convenio">Convenio de Colaboración</option>
                             <option value="presupuesto">Presupuesto Personalizado</option>
                             <option value="colaboracion">Colaboración Estratégica</option>
                         </select>
-                        <textarea name="message" rows="5" 
-                            placeholder="💬 Cuéntanos tu necesidad técnica, proyecto o consulta..." required></textarea>
-                        <button type="submit" class="submit-btn">🚀 Enviar Consulta</button>
+                        <textarea name="message" rows="5"
+                            placeholder="💬 Describa su necesidad técnica, proyecto o consulta..." required></textarea>
+                        <button type="submit" class="submit-btn">Enviar Consulta</button>
                     </form>
                 </div>
-
                 <div class="contact-info">
                     <h3>Información de Contacto</h3>
                     <div class="contact-item">
@@ -600,49 +1097,48 @@
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">📍</span>
-                        <p><strong>Castellón de la Plana</strong><br>Comunidad Valenciana, España 🇪🇸</p>
+                        <p><strong>Calle Santa Quiteria, frente al nº 239</strong><br>Almazora (Castellón), España 🇪🇸</p>
                     </div>
                     <div class="contact-item">
                         <span class="contact-icon">⏰</span>
-                        <p><strong>Horario:</strong><br>Lunes a viernes de 9:00 a 18:00.</p>
+                        <p><strong>Horario de atención:</strong><br>Lunes a viernes, de 9:00 a 18:00 h.</p>
                     </div>
-
                     <div class="social-links-vertical">
                         <span style="font-weight:700; font-size:1rem; margin-bottom:0.2rem;">Síguenos en redes:</span>
                         <a href="https://www.instagram.com/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link instagram">
-                            📸 Instagram
+                            📸 Instagram · laboratoriotissuum
                         </a>
-                        <a href="https://www.tiktok.com/@laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link tiktok">
-                            🎵 TikTok
+                        <a href="https://www.tiktok.com/@laboratorio.tissuum" target="_blank" rel="noopener noreferrer" class="social-link tiktok">
+                            🎵 TikTok · laboratorio.tissuum
                         </a>
                         <a href="https://www.linkedin.com/company/laboratoriotissuum" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
-                            💼 LinkedIn
+                            💼 LinkedIn · LaboratorioTissuum
                         </a>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- FOOTER CON ÍNDICE SIN INICIO -->
     <footer>
         <div class="footer-links">
             <a href="#" data-section="innovacion">✨ Innovación</a>
             <a href="#" data-section="servicios">🧬 Servicios</a>
             <a href="#" data-section="modelo">📊 Negocio</a>
             <a href="#" data-section="proceso">⚙️ Proceso</a>
+            <a href="#" data-section="calidad">🏅 Calidad</a>
+            <a href="#" data-section="proyectos">🔭 Proyectos</a>
+            <a href="#" data-section="faq">❓ FAQ</a>
             <a href="#" data-section="contacto">📞 Contacto</a>
         </div>
-
-        <p>&copy; 2026 Laboratorios TISSUUM – Anatomía Patológica Avanzada | Castellón, España</p>
+        <p>&copy; 2026 Laboratorios TISSUUM – Anatomía Patológica Avanzada | Almazora, Castellón, España</p>
         <p style="margin-top:0.4rem; opacity:0.85; font-size:0.9rem;">
-            Haz clic en el logo para volver al inicio o usa el índice inferior para navegar.
+            Haz clic en el logo para volver al inicio · Centro especializado en anatomía patológica avanzada
         </p>
     </footer>
 
     <script>
-        const sectionsOrder = ['inicio', 'innovacion', 'servicios', 'modelo', 'proceso', 'contacto'];
-
         function mostrarSeccion(id) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             const sec = document.getElementById(id);
@@ -650,23 +1146,18 @@
                 sec.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            // Actualizar activo en nav y footer
             document.querySelectorAll('nav a, .footer-links a').forEach(a => {
                 a.classList.toggle('active', a.dataset.section === id);
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const logo = document.getElementById('logoTissuum');
             const form = document.getElementById('contactForm');
             const alertSuccess = document.getElementById('alertSuccess');
 
-            // Logo -> SIEMPRE ir al INICIO
-            logo.addEventListener('click', () => {
-                mostrarSeccion('inicio');
-            });
+            logo.addEventListener('click', () => mostrarSeccion('inicio'));
 
-            // Menú superior y footer
             document.querySelectorAll('nav a, .footer-links a').forEach(a => {
                 a.addEventListener('click', e => {
                     e.preventDefault();
@@ -675,23 +1166,27 @@
                 });
             });
 
-            // Mostrar inicio al cargar
             mostrarSeccion('inicio');
 
-            // Formulario contacto (mailto)
-            form.addEventListener('submit', function(e) {
+            document.querySelectorAll('.faq-pregunta').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const estaAbierto = item.classList.contains('abierto');
+                    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('abierto'));
+                    if (!estaAbierto) item.classList.add('abierto');
+                });
+            });
+
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const formData = new FormData(form);
-                const subject = `Nueva consulta TISSUUM Labs - ${formData.get('service') || 'General'}`;
-                const body = `👤 Nombre: ${formData.get('name')}
-📧 Email: ${formData.get('email')}
-📱 Teléfono: ${formData.get('phone') || 'No proporcionado'}
-🔬 Servicio: ${formData.get('service')}
-💬 Mensaje: ${formData.get('message')}`;
-                
-                const mailtoLink = `mailto:laboratoriotissuum@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                window.location.href = mailtoLink;
-                
+                const subject = `Consulta Laboratorios TISSUUM – ${formData.get('service') || 'General'}`;
+                const body = `Nombre: ${formData.get('name')}
+Correo: ${formData.get('email')}
+Teléfono: ${formData.get('phone') || 'No proporcionado'}
+Tipo de consulta: ${formData.get('service')}
+Mensaje: ${formData.get('message')}`;
+                window.location.href = `mailto:laboratoriotissuum@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 alertSuccess.style.display = 'block';
                 form.reset();
                 setTimeout(() => alertSuccess.style.display = 'none', 6000);
